@@ -59,7 +59,7 @@ resources:
 
      metadata:
       dependsOn:
-      - ser-service-dev-first
+      - user-service-dev-first
     
 
 
