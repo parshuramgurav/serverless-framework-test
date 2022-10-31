@@ -13,6 +13,7 @@ pipeline {
           gcloud version
           gcloud auth activate-service-account --key-file="$GCLOUD_CREDS"
           gcloud compute zones list
+          gcloud compute/region asia-south1
           whoami
         '''
       }
@@ -25,7 +26,6 @@ pipeline {
           serverless --help
           sudo npm install --save serverless-google-cloudfunctions
           serverless deploy
-          gcloud functions add-iam-policy-binding user-service-dev-first --member="allUsers" --role="roles/cloudfunctions.invoker"
         '''
       }
     }
