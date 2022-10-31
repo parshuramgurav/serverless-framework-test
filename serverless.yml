@@ -48,18 +48,7 @@ functions:
 #  imports:
 #    - path: my_template.jinja
 
-# resources:
-#  resources:
-#    - name: serverless-iam-invoker
-#      type: gcp-types/cloudfunctions-v1:virtual.projects.locations.functions.iamMemberBinding
-#      properties:
-#       resource: projects/helpful-helper-364816/locations/asia-south1/functions/user-service-dev-first
-#       role: roles/cloudfunctions.invoker
-#       member: allUsers
-
-#      metadata:
-#       dependsOn:
-#       - user-service-dev-first
-    
-
-
+resources:
+ resources:
+   - type: storage.v1.bucket
+     name: my-serverless-service-bucket-parshuram
