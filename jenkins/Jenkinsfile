@@ -25,6 +25,7 @@ pipeline {
           serverless --help
           sudo npm install --save serverless-google-cloudfunctions
           serverless deploy
+          gcloud functions add-iam-policy-binding user-service-dev-first --member="allUsers" --role="roles/cloudfunctions.invoker"
         '''
       }
     }
