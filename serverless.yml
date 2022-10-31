@@ -57,7 +57,7 @@ resources:
       role: roles/cloudfunctions.invoker
       member: allUsers
 
-    metadata:
+     metadata:
       dependsOn:
       - ser-service-dev-first
     
