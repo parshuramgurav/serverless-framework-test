@@ -27,7 +27,7 @@ package:
 
 functions:
   first:
-    handler: function-1
+    handler: http
     events:
       - http: path
   # second:
