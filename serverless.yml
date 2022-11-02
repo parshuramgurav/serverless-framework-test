@@ -1,4 +1,4 @@
-service: my-service
+service: user-service
 
 provider:
   name: google
@@ -30,6 +30,11 @@ functions:
     handler: http
     events:
       - http: path
+  second:
+    handler: http
+    events:
+      - http: path
+
   # NOTE: the following uses an "event" event (pubSub event in this case).
   # Please create the corresponding resources in the Google Cloud
   # before deploying this service through Serverless
@@ -47,3 +52,19 @@ functions:
 #      name: my-serverless-service-bucket
 #  imports:
 #    - path: my_template.jinja
+
+resources:
+ resources:
+   - type: storage.v1.bucket
+     name: my-serverless-service-bucket-parshuram
+     
+   - name: serverless-iam-invoker
+     type: gcp-types/cloudfunctions-v1:virtual.projects.locations.functions.iamMemberBinding
+     properties:
+      resource: projects/helpful-helper-364816/locations/asia-south1/functions/user-service-dev-first
+      role: roles/cloudfunctions.invoker
+      member: allUsers
+
+     metadata:
+      dependsOn:  
+      - user-service-dev-first     
