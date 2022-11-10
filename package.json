@@ -1,5 +1,5 @@
 {
-  "name": "user-service",
+  "name": "smri-oms-bq-reporting-fluent-gcs-order",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
