@@ -1,4 +1,4 @@
-service: user-service
+service: smri-oms-bq-reporting-fluent-gcs-order
 
 provider:
   name: google
