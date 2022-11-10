@@ -29,6 +29,9 @@ package:
 
 functions:
   first:
+    serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
+
+
     handler: http
     events:
       - http: path
