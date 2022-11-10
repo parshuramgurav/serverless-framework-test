@@ -65,7 +65,7 @@ resources:
      properties:
       resource: projects/helpful-helper-364816/locations/asia-south1/functions/user-service-dev-first
       role: roles/cloudfunctions.invoker
-      member: allUsers
+      member: test-586@helpful-helper-364816.iam.gserviceaccount.com
 
      metadata:
       dependsOn:  
