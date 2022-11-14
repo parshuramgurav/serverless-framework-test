@@ -17,7 +17,7 @@ provider:
 frameworkVersion: '3'
 
 plugins:
-  - serverless-google-cloudfunctions
+  # - serverless-google-cloudfunctions
   - serverless-plugin-typescript
 
 # needs more granular excluding in production as only the serverless provider npm
@@ -31,6 +31,6 @@ plugins:
 functions:
   first:
     serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
-    handler: src/functions/http-hello/handler.httpHello
+    handler: src/functions/http-hello/handler
     events:
       - http: path
