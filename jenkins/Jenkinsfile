@@ -1,0 +1,39 @@
+pipeline {
+  agent any
+  environment {
+    CLOUDSDK_CORE_PROJECT='helpful-helper-364816'
+    CLIENT_EMAIL_ID='jenkins@helpful-helper-364816.iam.gserviceaccount.com'
+    GCLOUD_CREDS=credentials('gcloud-creds')
+    GOOGLE_APPLICATION_CREDENTIALS=credentials('gcloud-creds')
+  }
+  stages {
+    stage('version-testing') {
+      steps {
+        sh '''
+          gcloud version
+          gcloud auth activate-service-account --key-file="$GCLOUD_CREDS"
+          gcloud compute zones list
+          whoami
+          gcloud auth list
+        '''
+      }
+    }
+    stage('version check') {
+      steps {
+        sh '''
+          node --version
+          sudo npm install -g serverless
+	  sudo serverless install --name serverless-plugin-typescripts
+	  sudo npm install --save serverless-google-cloudfunctions
+	  sudo npm install -g serverless@3
+          serverless deploy
+        '''
+      }
+    }
+  }
+  post {
+    always {
+      sh 'gcloud auth revoke $CLIENT_EMAIL_ID'
+    }
+  }
+}
