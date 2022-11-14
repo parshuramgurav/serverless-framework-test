@@ -31,6 +31,6 @@ plugins:
 functions:
   first:
     serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
-    handler: src/functions/http-hello/handler
+    handler: index.ts
     events:
       - http: path
