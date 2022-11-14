@@ -30,6 +30,6 @@ plugins:
 functions:
   first:
     serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
-    handler: handler.hello
+    handler: src/functions/http-hello/handler.httpHello
     events:
       - http: path
