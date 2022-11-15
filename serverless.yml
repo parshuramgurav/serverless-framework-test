@@ -1,72 +1,17 @@
-service: user-service
-
-provider:
-  name: google
-  stage: dev
-  runtime: nodejs10
-  region: asia-south1
-  project: helpful-helper-364816
-  memorySize: 512
-  timeout: 120s
-  # The GCF credentials can be a little tricky to set up. Luckily we've documented this for you here:
-  # https://serverless.com/framework/docs/providers/google/guide/credentials/
-  #
-  # the path to the credentials file needs to be absolute
-  # credentials: ~/.gcloud/keyfile.json
-
-frameworkVersion: '3'
+service: serverless-example
 
 plugins:
   - serverless-google-cloudfunctions
+  - serverless-plugin-typescript
 
-# needs more granular excluding in production as only the serverless provider npm
-# package should be excluded (and not the whole node_modules directory)
-package:
-  exclude:
-    - node_modules/**
-    - .gitignore
-    - .git/**
-    - jenkins/**
+provider:
+  name: google
+  region: asia-south1
+  project: helpful-helper-364816
+  runtime: nodejs16
 
 functions:
-  first:
-    serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
-
-
-    handler: http
+  hello:
+    handler: hello
     events:
       - http: path
-
-  # NOTE: the following uses an "event" event (pubSub event in this case).
-  # Please create the corresponding resources in the Google Cloud
-  # before deploying this service through Serverless
-  #second:
-  #  handler: event
-  #  events:
-  #    - event:
-  #        eventType: providers/cloud.pubsub/eventTypes/topic.publish
-  #        resource: projects/*/topics/my-topic
-# you can define resources, templates etc. the same way you would in a
-# Google Cloud deployment configuration
-#resources:
-#  resources:
-#    - type: storage.v1.bucket
-#      name: my-serverless-service-bucket
-#  imports:
-#    - path: my_template.jinja
-
-resources:
- resources:
-   - type: storage.v1.bucket
-     name: my-serverless-service-bucket-parshuram
-     
-   - name: serverless-iam-invoker
-     type: gcp-types/cloudfunctions-v1:virtual.projects.locations.functions.iamMemberBinding
-     properties:
-      resource: projects/helpful-helper-364816/locations/asia-south1/functions/user-service-dev-first
-      role: roles/cloudfunctions.invoker
-      member: allUsers
-
-     metadata:
-      dependsOn:  
-      - user-service-dev-first     
