@@ -30,6 +30,6 @@ plugins:
 
 functions:
   first:
-    handler: /src/functions/http-hello/handler.httpHello
+    handler: httpHello
     events:
-      - http: typescripts/hello
+      - http: path
