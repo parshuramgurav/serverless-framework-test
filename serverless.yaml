@@ -30,6 +30,6 @@ plugins:
 
 functions:
   first:
-    handler: /src/functions/http-hello/handler.ts
+    handler: /src/functions/http-hello/handler.httpHello
     events:
-      - http: /src/functions/event-hello/handler.ts
+      - http: /src/functions/event-hello/handler
