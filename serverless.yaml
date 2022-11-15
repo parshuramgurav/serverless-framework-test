@@ -29,6 +29,7 @@ plugins:
 #     - .git/**
 
 functions:
-  handler: /src/functions/http-hello/handler
-  events:
-    - http: path
+  httpHello:
+    handler: /src/functions/http-hello/handler
+    events:
+      - http: path
