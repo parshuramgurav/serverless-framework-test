@@ -1,4 +1,4 @@
-service: serverless-example
+service: serverless-example-v1
 
 plugins:
   - serverless-google-cloudfunctions
