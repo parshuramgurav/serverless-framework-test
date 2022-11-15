@@ -25,6 +25,7 @@ pipeline {
           serverless --version
           serverless --help
           sudo npm install --save serverless-google-cloudfunctions
+          sudo npm install -D serverless-plugin-typescript typescript
           serverless deploy
         '''
       }
