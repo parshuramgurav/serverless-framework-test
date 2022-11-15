@@ -32,4 +32,4 @@ functions:
   first:
     handler: /src/functions/http-hello/handler.httpHello
     events:
-      - http: /src/functions/http-hello/handler.eventHello
+      - http: /src/functions/event-hello/handler.eventHello
