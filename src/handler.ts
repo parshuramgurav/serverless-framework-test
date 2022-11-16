@@ -7,15 +7,16 @@ export async function hello(event, context, callback) {
   // console.log(_.VERSION)
 
   // async/await also works out of the box
-  // await new Promise((resolve, reject) => setTimeout(resolve, 500))
+  await new Promise((resolve, reject) => setTimeout(resolve, 500))
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: 'Go Serverless v1.0! Your function executed successfully!',
-      input: event,
-    }),
-  };
+  // const response = {
+  //   statusCode: 200,
+  //   body: JSON.stringify({
+  //     message: 'Go Serverless v1.0! Your function executed successfully!'
+  //   }),
+  // };
 
-  callback(null, response);
+  // callback(null, response);
+  console.log("hello world")
+
 }
