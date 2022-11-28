@@ -35,9 +35,7 @@ functions:
     events:
       - http: path
     labels:
-      ApplicationName: serverless-example_documentation
-      Environment: dev
-      DepartmentName: IT     
+      ApplicationName: serverless-example_documentation     
       
       
       
