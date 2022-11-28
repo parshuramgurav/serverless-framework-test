@@ -34,10 +34,10 @@ functions:
     handler: http
     events:
       - http: path
-   labels:
-    ApplicationName: serverless-example_documentation
-    Environment: dev
-    DepartmentName: IT     
+    labels:
+      ApplicationName: serverless-example_documentation
+      Environment: dev
+      DepartmentName: IT     
       
       
       
