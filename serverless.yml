@@ -35,7 +35,7 @@ functions:
     events:
       - http: path
     labels:
-      ApplicationName: serverless-example     
+      application: serverless-example_documentation     
       
       
       
