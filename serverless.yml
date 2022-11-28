@@ -31,11 +31,20 @@ package:
 functions:
   first:
     serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
-
-
     handler: http
     events:
       - http: path
+   labels:
+    ApplicationName: serverless-example_documentation
+    Environment: dev
+    DepartmentName: IT     
+      
+      
+      
+      
+      
+      
+      
 
   # NOTE: the following uses an "event" event (pubSub event in this case).
   # Please create the corresponding resources in the Google Cloud
