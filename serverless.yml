@@ -33,7 +33,9 @@ functions:
     serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
     handler: http
     events:
-      - http: path
+      - event:
+          eventType: providers/cloud.pubsub/eventTypes/topic.publish
+          resource: 'projects/${self:provider.project, ""}/topics/my-topic'
     labels:
       application: serverless-example_documentation     
       
