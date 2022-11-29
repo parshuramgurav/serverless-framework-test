@@ -31,7 +31,7 @@ package:
 functions:
   first:
     serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
-    handler: http
+    handler: pubSub
     events:
       - event:
           eventType: providers/cloud.pubsub/eventTypes/topic.publish
