@@ -28,54 +28,43 @@ package:
     - .git/**
     - jenkins/**
 
+
 functions:
   first:
-    serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
-    handler: pubSub
+    handler: http
     events:
-      - event:
-          eventType: providers/cloud.pubsub/eventTypes/topic.publish
-          resource: 'projects/${self:provider.project, ""}/topics/my-topic'
-    labels:
-      application: serverless-example_documentation     
-      
-      
-      
-      
-      
-      
-      
+      - http: path
 
-  # NOTE: the following uses an "event" event (pubSub event in this case).
-  # Please create the corresponding resources in the Google Cloud
-  # before deploying this service through Serverless
-  #second:
-  #  handler: event
-  #  events:
-  #    - event:
-  #        eventType: providers/cloud.pubsub/eventTypes/topic.publish
-  #        resource: projects/*/topics/my-topic
-# you can define resources, templates etc. the same way you would in a
-# Google Cloud deployment configuration
-#resources:
+
+# if you want to add the pub/sub and lables as the event then you can add the below code
+
+# functions:
+#   first:
+#     serviceAccountEmail: test-586@helpful-helper-364816.iam.gserviceaccount.com
+#     handler: pubSub
+#     events:
+#       - event:
+#           eventType: providers/cloud.pubsub/eventTypes/topic.publish
+#           resource: 'projects/${self:provider.project, ""}/topics/my-topic'
+#     labels:
+#       application: serverless-example_documentation     
+
+
+
+# if you want to add cloudfunction invoker permission to all user then you can add below code
+
+# resources:
 #  resources:
 #    - type: storage.v1.bucket
-#      name: my-serverless-service-bucket
-#  imports:
-#    - path: my_template.jinja
-
-resources:
- resources:
-   - type: storage.v1.bucket
-     name: my-serverless-service-bucket-parshuram
+#      name: my-serverless-service-bucket-parshuram
      
-   - name: serverless-iam-invoker
-     type: gcp-types/cloudfunctions-v1:virtual.projects.locations.functions.iamMemberBinding
-     properties:
-      resource: projects/helpful-helper-364816/locations/asia-south1/functions/user-service-dev-first
-      role: roles/cloudfunctions.invoker
-      member: allUsers
+#    - name: serverless-iam-invoker
+#      type: gcp-types/cloudfunctions-v1:virtual.projects.locations.functions.iamMemberBinding
+#      properties:
+#       resource: projects/helpful-helper-364816/locations/asia-south1/functions/user-service-dev-first
+#       role: roles/cloudfunctions.invoker
+#       member: allUsers
 
-     metadata:
-      dependsOn:  
-      - user-service-dev-first     
+#      metadata:
+#       dependsOn:  
+#       - user-service-dev-first     
