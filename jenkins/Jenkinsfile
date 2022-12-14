@@ -19,19 +19,10 @@ pipeline {
       }
     }
     stage('Approval') {
-    properties([
-        [$class: 'E-mailExtTemplate',
-        subject: 'Approval needed for ${JOB_NAME}',
-        body: 'Please review and approve or reject the job ${JOB_NAME}',
-        recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-        ]
-    ])
-
     input message: 'Waiting for approval', ok: 'Approve'
-
-    if (currentBuild.result == 'ABORTED') {
-        error('Pipeline aborted by user')
-    }
+      if (currentBuild.result == 'ABORTED') {
+          error('Pipeline aborted by user')
+      }
     }
     stage('version check') {
       steps {
