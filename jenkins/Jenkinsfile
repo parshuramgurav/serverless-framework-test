@@ -19,11 +19,11 @@ pipeline {
       }
     }
     stage('Approval') {
-    input message: 'Waiting for approval', ok: 'Approve'
-      if (currentBuild.result == 'ABORTED') {
-          error('Pipeline aborted by user')
-      }
-    }
+      input message: 'Waiting for approval', ok: 'Approve'
+        if (currentBuild.result == 'ABORTED') {
+            error('Pipeline aborted by user')
+        }
+     }
     stage('version check') {
       steps {
         sh '''
