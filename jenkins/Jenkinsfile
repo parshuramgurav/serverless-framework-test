@@ -15,6 +15,7 @@ pipeline {
           gcloud compute zones list
           whoami
           gcloud auth list
+          pwd
         '''
       }
     }
