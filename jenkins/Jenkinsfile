@@ -18,14 +18,14 @@ pipeline {
         '''
       }
     }
-   stage('Approval') {
+    stage('Approval') {
     // Set up the email notification properties
     properties([
-      [$class: 'E-mailExtTemplate',
-       subject: 'Approval needed for ${JOB_NAME}',
-       body: 'Please review and approve or reject the job ${JOB_NAME}',
-       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-      ]
+        [$class: 'E-mailExtTemplate',
+        subject: 'Approval needed for ${JOB_NAME}',
+        body: 'Please review and approve or reject the job ${JOB_NAME}',
+        recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+        ]
     ])
 
     // Set up the input step to pause the pipeline and wait for user input
@@ -34,9 +34,9 @@ pipeline {
     // If the pipeline is approved, continue to the next stage
     // Otherwise, abort the pipeline
     if (currentBuild.result == 'ABORTED') {
-      error('Pipeline aborted by user')
+        error('Pipeline aborted by user')
     }
-  }
+    }
     stage('version check') {
       steps {
         sh '''
