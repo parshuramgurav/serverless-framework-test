@@ -18,6 +18,14 @@ pipeline {
         '''
       }
     }
+    stage('Manual approval') {
+      steps {
+        input message: 'Please review and approve the deployment',
+              id: 'approval',
+              submitter: 'parshuram.gurav@searce.com',
+              recipients: 'parshuramgurav5@gmail.com'
+      }
+    }
     stage('version check') {
       steps {
         sh '''
