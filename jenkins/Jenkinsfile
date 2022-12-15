@@ -14,12 +14,15 @@ pipeline {
           gcloud auth activate-service-account --key-file="$GCLOUD_CREDS"
           gcloud compute zones list
           whoami
-          pwd
           gcloud auth list
         '''
       }
     }
-    stage('version check') {
+    stage('input/deployment') {  
+      input {
+        message "Do you want to approve the deployment?"
+        ok "Submit"
+      }
       steps {
         sh '''
           node --version
