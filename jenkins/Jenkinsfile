@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent none
   environment {
     CLOUDSDK_CORE_PROJECT='helpful-helper-364816'
     CLIENT_EMAIL_ID='jenkins@helpful-helper-364816.iam.gserviceaccount.com'
@@ -18,7 +18,8 @@ pipeline {
         '''
       }
     }
-    stage('input/deployment') {  
+    stage('input/deployment') {
+      agent any    
       input {
         message "Do you want to approve the deployment?"
         ok "Submit"
