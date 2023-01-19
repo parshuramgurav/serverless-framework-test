@@ -14,7 +14,6 @@ pipeline {
           gcloud auth activate-service-account --key-file="$GCLOUD_CREDS"
           gcloud compute zones list
           whoami
-          gcloud auth list
         '''
       }
     }
