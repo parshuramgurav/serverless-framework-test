@@ -9,6 +9,6 @@ exports.event = (event, callback) => {
 };
 
 // exports.pubSub = (event, callback) => {
-//   console.log('Hello World!');
+//   console.log('Hello serverless World!');
 //   callback();
 // };
