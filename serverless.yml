@@ -5,7 +5,7 @@ provider:
   stage: dev
   runtime: nodejs10
   region: asia-south1
-  project: helpful-helper-364816
+  project: flawless-helper-376817
   memorySize: 512
   timeout: 120s
   # The GCF credentials can be a little tricky to set up. Luckily we've documented this for you here:
