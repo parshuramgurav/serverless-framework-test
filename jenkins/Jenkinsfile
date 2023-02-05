@@ -1,8 +1,8 @@
 pipeline {
   agent any
   environment {
-    CLOUDSDK_CORE_PROJECT='helpful-helper-364816'
-    CLIENT_EMAIL_ID='jenkins@helpful-helper-364816.iam.gserviceaccount.com'
+    CLOUDSDK_CORE_PROJECT='flawless-helper-376817'
+    CLIENT_EMAIL_ID='1048415450475-compute@developer.gserviceaccount.com'
     GCLOUD_CREDS=credentials('gcloud-creds')
     GOOGLE_APPLICATION_CREDENTIALS=credentials('gcloud-creds')
   }
